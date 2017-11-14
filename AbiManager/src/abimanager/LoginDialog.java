@@ -22,7 +22,7 @@ public class LoginDialog extends JDialog {
     private JLabel lbPassword;
     private JButton btnLogin;
     private JButton btnCancel;
-    private boolean succeeded;
+    private int role;
  
     public LoginDialog(Frame parent) {
         super(parent, "Login", true);
@@ -62,12 +62,13 @@ public class LoginDialog extends JDialog {
         btnLogin.addActionListener(new ActionListener() {
  
             public void actionPerformed(ActionEvent e) {
-                if (Login.authenticate(getUsername(), getPassword())) {
+                role = Login.authenticate(getUsername(), getPassword());
+                if (role>0) {
                     JOptionPane.showMessageDialog(LoginDialog.this,
                             "Hi " + getUsername() + "! You have successfully logged in.",
                             "Login",
                             JOptionPane.INFORMATION_MESSAGE);
-                    succeeded = true;
+                     
                     dispose();
                 } else {
                     JOptionPane.showMessageDialog(LoginDialog.this,
@@ -77,7 +78,7 @@ public class LoginDialog extends JDialog {
                     // reset username and password
                     tfUsername.setText("");
                     pfPassword.setText("");
-                    succeeded = false;
+                  
  
                 }
             }
@@ -109,7 +110,7 @@ public class LoginDialog extends JDialog {
         return new String(pfPassword.getPassword());
     }
  
-    public boolean isSucceeded() {
-        return succeeded;
+    public int isSucceeded() {
+        return role;
     }
 }

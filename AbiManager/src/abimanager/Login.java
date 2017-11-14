@@ -11,11 +11,27 @@ package abimanager;
  */
 public class Login {
  
-    public static boolean authenticate(String username, String password) {
+    public static int authenticate(String username, String password) {
         // hardcoded username and password
-        if (username.equals("bob") && password.equals("secret")) {
-            return true;
+        
+         if (username.equals("user") && password.equals("secret")) {
+            return 1;
         }
-        return false;
+        if (username.equals("asi") && password.equals("secret")) {
+            return 2;
+        }
+   
+       if (username.equals("abi") && password.equals("secret")) {
+            return 3;
+        }
+       if (username.equals("ado") && password.equals("secret")) {
+            return 4;
+        }
+        if (username.equals("admin") && password.equals("secret")) {
+            return 5;
+        }
+        
+        
+        return 0;
     }
 }

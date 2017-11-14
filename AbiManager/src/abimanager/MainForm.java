@@ -22,13 +22,34 @@ public class MainForm extends javax.swing.JFrame {
      */
  
 
+    
+    
+    
+    
     public MainForm() {
         LoginDialog loginDlg = new LoginDialog(this);
         loginDlg.setVisible(true);
-
-        if (loginDlg.isSucceeded()) {
-            initComponents();
-        }
+      int role = loginDlg.isSucceeded();
+      
+      
+      switch (role)
+      {
+          case 1: goUserMain();break;
+          case 2: goAsiMain();break;
+          case 3: goAbiMain();break;
+          case 4: goAdoMain();break;
+          case 5: goAdminMain();break;
+       
+          
+          default: System.exit(0);                 
+           
+                  
+                  
+      
+      
+      }
+      
+       
     }
 
     /**
@@ -40,52 +61,17 @@ public class MainForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jButton1.setText("jButton1");
-
-        jButton2.setText("jButton2");
-
-        jButton3.setText("jButton3");
-
-        jButton4.setText("jButton4");
-
-        jButton5.setText("jButton5");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton5)
-                    .addComponent(jButton4)
-                    .addComponent(jButton3)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
-                .addContainerGap(611, Short.MAX_VALUE))
+            .addGap(0, 730, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(94, 94, 94)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5)
-                .addContainerGap(281, Short.MAX_VALUE))
+            .addGap(0, 514, Short.MAX_VALUE)
         );
 
         pack();
@@ -126,11 +112,46 @@ public class MainForm extends javax.swing.JFrame {
         });
     }
 
+    private void goUserMain() {
+     java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new UserMain().setVisible(true);
+            }
+        });
+    }
+
+    private void goAsiMain() {
+      java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new ASIMain().setVisible(true);
+            }
+        });
+    }
+
+    private void goAbiMain() {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new ABIMain().setVisible(true);
+            }
+        });
+    }
+
+    private void goAdoMain() {
+         java.awt.EventQueue.invokeLater(new Runnable() {
+       public void run() {
+                new ADOMain().setVisible(true);
+            }
+        });
+    }
+
+    private void goAdminMain() {
+               java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new AdminMain().setVisible(true);
+            }
+        });
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     // End of variables declaration//GEN-END:variables
 }
